@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Goutham | Professional Portfolio</title>
+<title>Goutham | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -17,46 +17,67 @@
 }
 
 body{
-  background:#0b1120;
-  color:#e5e7eb;
+  background:linear-gradient(-45deg,#0f172a,#020617,#0b1120,#111827);
+  background-size:400% 400%;
+  animation:gradientMove 12s ease infinite;
+  color:white;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 /* NAVBAR */
 header{
   position:fixed;
-  top:0;
   width:100%;
-  padding:18px 80px;
+  top:0;
+  padding:20px 80px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(2,6,23,0.95);
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.4);
   z-index:1000;
 }
 
 .logo{
   font-size:22px;
-  font-weight:600;
+  font-weight:700;
   color:#38bdf8;
 }
 
 nav a{
   margin-left:25px;
-  color:#e5e7eb;
+  color:white;
   text-decoration:none;
+  position:relative;
   transition:0.3s;
 }
 
-nav a:hover{
-  color:#38bdf8;
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:#38bdf8;
+  left:0;
+  bottom:-5px;
+  transition:0.3s;
+}
+
+nav a:hover::after{
+  width:100%;
 }
 
 /* HERO */
 .hero{
   min-height:100vh;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
   padding:0 20px;
 }
@@ -67,28 +88,32 @@ nav a:hover{
 
 .hero span{
   color:#38bdf8;
+  text-shadow:0 0 15px #38bdf8;
 }
 
 .hero p{
   margin-top:15px;
-  color:#9ca3af;
-  font-size:18px;
+  color:#cbd5e1;
 }
 
+/* BUTTON */
 .btn{
   display:inline-block;
   margin-top:25px;
   padding:12px 35px;
-  background:#38bdf8;
-  color:#020617;
   border-radius:30px;
+  background:#38bdf8;
+  color:black;
   text-decoration:none;
-  font-weight:500;
+  font-weight:600;
+  position:relative;
   transition:0.3s;
+  box-shadow:0 0 15px #38bdf8;
 }
 
 .btn:hover{
-  transform:translateY(-3px);
+  transform:translateY(-4px);
+  box-shadow:0 0 30px #38bdf8;
 }
 
 /* SECTIONS */
@@ -99,55 +124,29 @@ section{
 
 section h2{
   font-size:32px;
-  margin-bottom:30px;
+  margin-bottom:40px;
 }
 
-/* ABOUT */
-.about-text{
-  max-width:700px;
-  margin:auto;
-  color:#cbd5f5;
-}
-
-/* SKILLS */
-.skills-grid{
-  margin-top:40px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:25px;
-}
-
-.skill{
-  background:#020617;
-  padding:25px;
-  border-radius:15px;
-  transition:0.3s;
-}
-
-.skill:hover{
-  background:#38bdf8;
-  color:#020617;
-}
-
-/* PROJECTS */
-.projects-grid{
-  margin-top:40px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-}
-
-.project{
-  background:#020617;
+/* GLASS CARDS */
+.card{
+  background:rgba(255,255,255,0.05);
+  border-radius:20px;
   padding:30px;
-  border-radius:18px;
-  transition:0.3s;
+  backdrop-filter:blur(15px);
+  transition:0.4s;
+  border:1px solid rgba(255,255,255,0.1);
 }
 
-.project:hover{
-  transform:translateY(-8px);
-  background:#38bdf8;
-  color:#020617;
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px #38bdf8;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
 }
 
 /* CONTACT */
@@ -162,29 +161,38 @@ section h2{
 .contact-form input,
 .contact-form textarea{
   padding:12px;
-  border:none;
   border-radius:8px;
+  border:none;
+  outline:none;
 }
 
 .contact-form button{
   padding:12px;
-  background:#38bdf8;
   border:none;
   border-radius:8px;
+  background:#38bdf8;
   font-weight:600;
+  cursor:pointer;
+  box-shadow:0 0 15px #38bdf8;
+  transition:0.3s;
+}
+
+.contact-form button:hover{
+  box-shadow:0 0 30px #38bdf8;
+  transform:translateY(-3px);
 }
 
 /* FOOTER */
 footer{
-  background:#020617;
   padding:20px;
   text-align:center;
+  background:rgba(0,0,0,0.6);
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
   header{
-    padding:18px 30px;
+    padding:20px 30px;
   }
   section{
     padding:80px 30px;
@@ -214,74 +222,67 @@ footer{
   <div>
     <h1>Hello, I'm <span>Goutham</span></h1>
     <h3>Full Stack & AI Developer</h3>
-    <p>I build modern web applications and intelligent systems.</p>
-    <a href="#contact" class="btn">Contact Me</a>
+    <p>I design and build scalable, modern digital experiences.</p>
+    <a href="#contact" class="btn">Hire Me</a>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
-  <p class="about-text">
-    I am a passionate developer specializing in full stack web development
-    and artificial intelligence. I enjoy creating fast, scalable and
-    user-friendly applications.
-  </p>
+  <div class="card">
+    <p>
+      Passionate developer with strong knowledge in Full Stack Development and AI/ML.
+      I focus on performance, clean UI, and scalable architecture.
+    </p>
+  </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
-  <div class="skills-grid">
-    <div class="skill">HTML</div>
-    <div class="skill">CSS</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">React</div>
-    <div class="skill">Node.js</div>
-    <div class="skill">Python</div>
-    <div class="skill">MongoDB</div>
-    <div class="skill">AI / ML</div>
+  <div class="grid">
+    <div class="card">HTML & CSS</div>
+    <div class="card">JavaScript</div>
+    <div class="card">React</div>
+    <div class="card">Node.js</div>
+    <div class="card">Python</div>
+    <div class="card">MongoDB</div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
-  <div class="projects-grid">
-
-    <div class="project">
+  <div class="grid">
+    <div class="card">
       <h3>AI Medical Chatbot</h3>
-      <p>TB information assistant.</p>
+      <p>Smart assistant for medical information.</p>
     </div>
-
-    <div class="project">
+    <div class="card">
       <h3>Portfolio Website</h3>
-      <p>Personal responsive portfolio.</p>
+      <p>Responsive modern portfolio design.</p>
     </div>
-
-    <div class="project">
-      <h3>E-Commerce App</h3>
-      <p>Full stack shopping platform.</p>
+    <div class="card">
+      <h3>E-Commerce Platform</h3>
+      <p>Full stack shopping web application.</p>
     </div>
-
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <h2>Contact Me</h2>
-
   <form class="contact-form">
     <input type="text" placeholder="Your Name" required>
     <input type="email" placeholder="Your Email" required>
     <textarea rows="4" placeholder="Message"></textarea>
     <button type="submit">Send Message</button>
   </form>
-
 </section>
 
 <footer>
-  <p>© 2026 Goutham. All Rights Reserved.</p>
+  © 2026 Goutham | All Rights Reserved
 </footer>
 
 </body>
